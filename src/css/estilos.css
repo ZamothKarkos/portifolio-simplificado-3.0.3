@@ -194,12 +194,12 @@ body {
     cursor: pointer;
 }
 
-.projeto .btn-mostrar-projetos :hover {
-    background-color: #9443d8;
+.projetos .btn-mostrar-projetos:hover {
+    background: linear-gradient(to right, #141414, #cfb845, #7fc3c0);
     transition: 0.3s;
 }
 
-.projeto .btn-mostrar-projetos .remover {
+.projetos .btn-mostrar-projetos.remover {
     display: none;
 }
 

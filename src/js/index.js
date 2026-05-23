@@ -1,35 +1,27 @@
-/*Objetivo 1 - quando o usuário clicar no botão de mostrar MediaSession, deve abrir os projetos que estão escondidos no HTML 
+// - Objetivo 1 - quando o usuário clicar no botão de mostrar mais deve abrir os projetos que estão escondidos no html 
+//  Passo 1 - pegar o botão mostrar mais no JS pra poder verificar quando o usuário clicar em cima dele 
+//  Passo 2 - identificar o clique no botão 
+//  Passo 3 - adicionar a classe ativo nos projetos escondidos
 
-        passo 01 - pegar o botão de mostrar mais no JS para poder verificar quando o usuário clicar em cima delete.
+// - Objetivo 2 - esconder o botão de mostrar mais 
+//  Passo 1 - pegar o botão e esconder ele *
 
-        passo 02 - identificar o clique no botão. 
 
-        passo 03 - adicionar a classe ativo aos projetos escondidos
 
-  Objetivo 1 - Esconder o botão de voltar mais. 
-        
-        passo 1 - pegar o botão e esconder ele.
-/*
-            passo 2 - identificar o clique no botão.
+mostrarMaisProjetos();
 
-            passo 3 - esconder o botão.
-*/
-const btnMostrarMais = document.querySelector('.btn-mais');
-const projetosOcultos = document.querySelectorAll('.projeto-oculto');   
-const btnMostrarMenos = document.querySelector('.btn-menos');
-btnMostrarMais.addEventListener('click', function() {
-    for (let i = 0; i < projetosOcultos.length; i++) {
-            projetosOcultos[i].classList.add('ativo');
-      }
-      btnMostrarMais.classList.add('inativo');
-      btnMostrarMenos.classList.remove('inativo');
-});
+function mostrarMaisProjetos() {
+      const botaoMostrarProjetos = document.querySelector('.btn-mostrar-projetos');
+      const projetosInativos = document.querySelectorAll('.projeto:not(.ativo)');
 
-btnMostrarMenos.addEventListener('click', function() {
-    for (let i = 0; i < projetosOcultos.length; i++) {
-            projetosOcultos[i].classList.remove('ativo');
-      }
-      btnMostrarMais.classList.remove('inativo');
-      btnMostrarMenos.classList.add('inativo');
-});
+      botaoMostrarProjetos.addEventListener('click', () => {
+            //  Passo 3 - adicionar a classe ativo nos projetos escondidos
+            projetosInativos.forEach(projetoInativo => {
+                  projetoInativo.classList.add('ativo');
+            });
 
+            // - Objetivo 2 - esconder o botão de mostrar mais 
+            //  Passo 1 - pegar o botão e esconder ele *
+            botaoMostrarProjetos.classList.add('remover');
+      });
+}
